@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div id="profile"></div>
+    <script>
+        async function fetchProfile() {
+            const token = localStorage.getItem('token');
+
+            const response = await fetch('http://localhost:5000/api/profile', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
+            if (response.ok) {
+                const profileText = await response.text();
+                document.getElementById('profile').innerText = profileText;
+            } else {
+                window.location.href = 'login.html'; // Redirect back to login if unauthorized
+            }
+        }
+
+        fetchProfile();
+    </script>
+</body>
+</html>

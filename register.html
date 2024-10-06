@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <button onclick="connectMetaMask()">Connect to MetaMask</button>
+    <form id="registrationForm">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+       
+        <input type="hidden" id="ethAddress" name="ethAddress">
+    
+        <button type="submit">Register</button>
+    </form>
+    <div id="message"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.0/web3.min.js"></script>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const username = this.username.value;
+            const password = this.password.value;
+
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (response.ok) {
+                document.getElementById('message').innerText = 'Registration successful! You can now log in.';
+                // Optionally redirect to login page
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('message').innerText = 'Registration failed. Username may already exist.';
+            }
+
+            async function connectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+                    const signer = provider.getSigner();
+                    const address = await signer.getAddress();
+                    document.getElementById('ethAddress').value = address;
+                    alert("Connected with address: " + address);
+                } catch (error) {
+                    console.error("MetaMask connection error:", error);
+                }
+            } else {
+                alert("MetaMask not detected. Please install MetaMask.");
+            }
+        }
+        });
+    </script>
+</body>
+</html>

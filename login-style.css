@@ -1,0 +1,154 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-stretch: expanded;
+    font-weight: 40;
+}
+body{
+    background: url("login-bg2.jpg");
+    background-position:center;
+    background-size: cover;
+}
+.nav{
+    padding: 10px;
+    background-color: #181818dc;
+    height:80px;
+    
+}
+
+.nav h1{
+    font-size: 30px;
+    transform: translateX(50px) translateY(10px);
+    width: fit-content;
+    font-family: "Fraunces",serif;
+    font-weight: 300;
+    color:#bbe4fa;
+
+}
+
+.nav-container{
+    text-align: end;
+    width:50%;
+    transform: translateX(-2px) translateY(18px);
+}
+.nav a{
+    color: #DEF2FD;
+    text-decoration: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 18px;
+}
+
+.content{
+    min-height: 92vh;
+    width: 100%;
+    background-color: #181818dc;
+}
+
+.wrapper{
+    background-color: #2929293a;
+    display: flex;
+    justify-content: center;
+    transform: translate(30%,25%);
+    top: 30%;
+    padding:2%;
+    width: 60%;
+    height: 60vh;
+    color: #DEF2FD; 
+    padding-top: 5%;
+}
+.wrapper form{
+    width: 50%;
+}
+
+.wrapper h1{
+    transform: translateX(35%);
+    font-family: "Fraunces",serif;
+    font-weight: 300;
+    color: #bbe4fa;
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height:50px;
+    margin: 30px 0;
+}
+
+
+.input-box input{
+    width:100%;
+    height:100%;
+    background:transparent;
+    border: 1px solid #DEF2FD;
+    outline: none;
+    border-radius: 40px;
+    color: #DEF2FD;
+    padding: 1em 2.5em 1em 1em;
+}
+
+.input-box input::placeholder{
+    color: #DEF2FD;
+    font-weight: 100;
+    font-stretch: wider;
+
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forget{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin:-15px 0 15px;
+    padding: 0 1.5em;
+}
+/* checkbox color */
+.remember-forget label input{
+    accent-color:#DEF2FD;
+    margin-right: 3px;
+}
+.remember-forget a{
+    text-decoration: none;
+    color:#bbe4fa;
+}
+
+.remember-forget a:hover{
+    text-decoration: underline;
+}
+
+.wrapper .btn{
+    width:100%;
+    height:45px;
+    background:#bbe4fa;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #181818dc;
+    cursor: pointer;
+    font-size: 18px;
+    color:#181818;
+    font-weight: 600;
+}
+
+.wrapper .register-link{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+}
+.register-link p a{
+    color: #bbe4fa;
+    text-decoration: none;
+    font-weight:600;
+}
+
+.register-link p a:hover{
+    text-decoration: underline;
+}
